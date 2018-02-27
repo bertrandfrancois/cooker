@@ -1,6 +1,6 @@
 package com.frans.cooker.beans;
 
-import lombok.EqualsAndHashCode;
+import com.google.common.collect.Sets;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,12 +11,11 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode
 @Entity(name = "RECIPES")
 public class Recipe {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RECIPE_ID")
     private int id;
 
@@ -27,6 +26,9 @@ public class Recipe {
     private String description;
 
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
-    public Set<RecipeIngredient> recipeIngredients;
+    public Set<RecipeIngredient> recipeIngredients = Sets.newHashSet();
 
+    public void addRecipeIngredient(RecipeIngredient recipeIngredient) {
+        recipeIngredients.add(recipeIngredient);
+    }
 }
