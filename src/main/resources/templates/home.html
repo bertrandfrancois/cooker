@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<th:block th:include="fragments/head :: head"/>
+
+<body>
+<th:block th:include="fragments/nav_top :: nav_top"/>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Sidebar Page
+        <small>Subheading</small>
+    </h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="index.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">About</li>
+    </ol>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-lg-3 mb-4">
+            <th:block th:include="fragments/sidebar :: sidebar"/>
+
+        </div>
+        <!-- Content Column -->
+        <div class="col-lg-9 mb-4">
+            <h2>Section Heading</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis
+                veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate
+                dolores iure maxime ducimus fugit.</p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<th:block th:include="fragments/footer :: footer"/>
+
+
+<!-- Bootstrap core JavaScript -->
+<th:block th:include="fragments/scripts :: scripts"/>
+
+</body>
+
+</html>
